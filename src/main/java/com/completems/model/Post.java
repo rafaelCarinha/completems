@@ -6,11 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,12 +19,16 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @Column(name = "post_id")
+    private Long id;
     private String name;
     private String tittle;
     private String content;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    private List<Comment> comments;
 
     public Post(String name, String tittle, String content, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.name = name;

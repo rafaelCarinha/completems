@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/blog/api/v1")
+@RequestMapping("/api/v1/post")
 public class PostController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class PostController {
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteById(@RequestParam Integer id){
+    void deleteById(@RequestParam Long id){
         postService.deleteById(id);
     }
 
