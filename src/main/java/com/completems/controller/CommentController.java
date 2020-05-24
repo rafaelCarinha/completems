@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/comment")
 public class CommentController {
 
-    @Autowired
     private CommentService commentService;
+
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
+    }
 
     @PostMapping("/create")
     Comment create(@RequestBody Comment comment){
