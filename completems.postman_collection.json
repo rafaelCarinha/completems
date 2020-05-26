@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Test Name\",\n\t\"tittle\": \"Test Tittle\",\n\t\"content\": \"Test Content\"\n}",
+					"raw": "{\n\t\"name\": \"Test Name\",\n\t\"title\": \"Test Tittle\",\n\t\"content\": \"Test Content\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,11 +20,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/post/create",
+					"raw": "{{completems-host}}/api/v1/post/create",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",
@@ -42,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"comment\": \"Test Comment\",\n\t\"post\":     {\n        \"id\": 1,\n        \"name\": \"Test Name\",\n        \"tittle\": \"Test Tittle\",\n        \"content\": \"Test Content\",\n        \"createdAt\": \"2020-05-24T12:55:02.22\",\n        \"updatedAt\": null,\n        \"comments\": []\n    }\n}",
+					"raw": "{\n\t\"comment\": \"Test Comment\",\n\t\"post\":     {\n        \"id\": 4\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,11 +49,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/comment/create",
+					"raw": "{{completems-host}}/api/v1/comment/create",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",
@@ -83,11 +81,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/post/listAll",
+					"raw": "{{completems-host}}/api/v1/post/listAll",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",
@@ -116,11 +113,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/comment/listAll",
+					"raw": "{{completems-host}}/api/v1/comment/listAll",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",
@@ -138,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\n        \"id\": 1,\n        \"name\": \"Test Name\",\n        \"tittle\": \"Test Tittle\",\n        \"content\": \"Test Content\",\n        \"createdAt\": \"2020-05-24T13:16:08.537\",\n        \"updatedAt\": null\n    }",
+					"raw": "    {\n        \"id\": 1\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -146,11 +142,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/post/delete",
+					"raw": "{{completems-host}}/api/v1/post/delete",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",
@@ -168,7 +163,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "            {\n                \"id\": 2,\n                \"comment\": \"Test Comment\"\n            }",
+					"raw": "            {\n                \"id\": 2\n            }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -176,11 +171,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8086/api/v1/comment/delete",
+					"raw": "{{completems-host}}/api/v1/comment/delete",
 					"host": [
-						"localhost"
+						"{{completems-host}}"
 					],
-					"port": "8086",
 					"path": [
 						"api",
 						"v1",

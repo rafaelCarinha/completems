@@ -19,12 +19,12 @@ public class PostControllerIntegrationTests {
 
     @Test
     public void testCreateReadDelete() {
-        Post post = new Post("Name", "Tittle", "Content", LocalDateTime.now(), null);
+        Post post = new Post("Name", "Title", "Content", LocalDateTime.now());
 
         Post postResult = postController.create(post);
 
         Iterable<Post> posts = postController.listAll();
-        Assertions.assertThat(posts).first().hasFieldOrPropertyWithValue("tittle", "Tittle");
+        Assertions.assertThat(posts).first().hasFieldOrPropertyWithValue("title", "Title");
 
         postController.deleteById(postResult.getId());
         Assertions.assertThat(postController.listAll()).isEmpty();

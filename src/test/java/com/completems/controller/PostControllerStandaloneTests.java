@@ -32,7 +32,7 @@ public class PostControllerStandaloneTests {
 
     @Test
     public void testCreateReadDelete() throws Exception {
-        Post post = new Post("Name", "Tittle", "Content", LocalDateTime.now(), null);
+        Post post = new Post("Name", "Title", "Content", LocalDateTime.now());
         List<Post> posts = Arrays.asList(post);
 
         Mockito.when(postService.findAll()).thenReturn(posts);
@@ -41,6 +41,6 @@ public class PostControllerStandaloneTests {
                 .get("/api/v1/post/listAll"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", Matchers.hasSize(1)))
-                .andExpect(jsonPath("$[0].tittle", Matchers.is("Tittle")));
+                .andExpect(jsonPath("$[0].title", Matchers.is("Title")));
     }
 }

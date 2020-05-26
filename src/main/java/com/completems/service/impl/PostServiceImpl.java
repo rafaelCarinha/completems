@@ -3,7 +3,6 @@ package com.completems.service.impl;
 import com.completems.model.Post;
 import com.completems.repository.PostRepository;
 import com.completems.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,7 +18,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post save(Post post){
-
         return postRepository
                 .save(post.toBuilder()
                         .createdAt(LocalDateTime.now())
