@@ -28,6 +28,7 @@ public class Post {
     private String title;
 
     @Size(min=1)
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     private LocalDateTime createdAt;

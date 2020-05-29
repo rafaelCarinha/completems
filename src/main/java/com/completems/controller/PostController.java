@@ -1,8 +1,8 @@
 package com.completems.controller;
 
+import com.completems.dto.PostDTO;
 import com.completems.model.Post;
 import com.completems.service.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,7 +16,7 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    Post create(@RequestBody Post post){
+    PostDTO create(@RequestBody PostDTO post){
 
         return postService.save(post);
     }
@@ -26,13 +26,13 @@ public class PostController {
         return postService.findAll();
     }
 
-    @DeleteMapping("/delete")
-    void delete(@RequestBody Post post){
-        postService.delete(post);
+    @GetMapping("/findById")
+    Post findById(@RequestParam Long id) {
+        return postService.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteById(@RequestParam Long id){
+    void deleteById(@PathVariable Long id){
         postService.deleteById(id);
     }
 

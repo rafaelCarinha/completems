@@ -1,5 +1,6 @@
 package com.completems.controller;
 
+import com.completems.dto.PostDTO;
 import com.completems.model.Post;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -19,9 +20,9 @@ public class PostControllerIntegrationTests {
 
     @Test
     public void testCreateReadDelete() {
-        Post post = new Post("Name", "Title", "Content", LocalDateTime.now());
+        PostDTO post = new PostDTO("Name", "Title", "Content", LocalDateTime.now());
 
-        Post postResult = postController.create(post);
+        PostDTO postResult = postController.create(post);
 
         Iterable<Post> posts = postController.listAll();
         Assertions.assertThat(posts).first().hasFieldOrPropertyWithValue("title", "Title");

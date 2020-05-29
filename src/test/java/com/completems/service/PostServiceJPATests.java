@@ -1,5 +1,6 @@
 package com.completems.service;
 
+import com.completems.dto.PostDTO;
 import com.completems.model.Post;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -19,9 +20,9 @@ public class PostServiceJPATests {
 
     @Test
     public void testCreateReadDelete() {
-        Post post = new Post("Name", "Title", "Content", LocalDateTime.now());
+        PostDTO post = new PostDTO("Name", "Title", "Content", LocalDateTime.now());
 
-        Post postResult = postService.save(post);
+        PostDTO postResult = postService.save(post);
 
         Iterable<Post> posts = postService.findAll();
         Assertions.assertThat(posts).first().hasFieldOrPropertyWithValue("title", "Title");

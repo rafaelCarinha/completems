@@ -1,10 +1,12 @@
 package com.completems.service.impl;
 
+import com.completems.dto.PostDTO;
 import com.completems.model.Post;
 import com.completems.repository.PostRepository;
 import com.completems.service.PostService;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 
 @Service
@@ -17,11 +19,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post save(Post post){
-        return postRepository
-                .save(post.toBuilder()
+    public PostDTO save(PostDTO post){
+        return PostDTO.entityToDTO(postRepository
+                .save(Post.builder()
                         .createdAt(LocalDateTime.now())
-                        .build());
+                        .content(post.getContent())
+                        .name(post.getName())
+                        .title(post.getTitle())
+                        .build()));
     }
 
     @Override
@@ -30,8 +35,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void delete(Post post) {
-        postRepository.delete(post);
+    public Post findById(Long id) throws EntityNotFoundException {
+        return postRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Entity not found with id: "+id));
     }
 
     @Override

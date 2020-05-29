@@ -1,12 +1,13 @@
 package com.completems.service;
 
+import com.completems.dto.PostDTO;
 import com.completems.model.Post;
 
 public interface PostService {
 
-    Post save(Post post);
+    PostDTO save(PostDTO post);
     Iterable<Post> findAll();
-    void delete(Post post);
+    Post findById(Long id);
     void deleteById(Long id);
 
 }
