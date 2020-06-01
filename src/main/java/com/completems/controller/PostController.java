@@ -21,6 +21,12 @@ public class PostController {
         return postService.save(post);
     }
 
+    @PutMapping("/update")
+    PostDTO update(@RequestBody PostDTO post){
+
+        return postService.update(post);
+    }
+
     @GetMapping("/listAll")
     Iterable<Post> listAll() {
         return postService.findAll();

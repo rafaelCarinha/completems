@@ -30,6 +30,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public PostDTO update(PostDTO post){
+        return PostDTO.entityToDTO(postRepository
+                .save(Post.builder()
+                        .id(post.getId())
+                        .updatedAt(LocalDateTime.now())
+                        .content(post.getContent())
+                        .name(post.getName())
+                        .title(post.getTitle())
+                        .build()));
+    }
+
+    @Override
     public Iterable<Post> findAll() {
         return postRepository.findAll();
     }
