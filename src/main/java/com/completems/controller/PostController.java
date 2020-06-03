@@ -1,6 +1,7 @@
 package com.completems.controller;
 
 import com.completems.dto.PostDTO;
+import com.completems.model.DynamoPost;
 import com.completems.model.Post;
 import com.completems.service.PostService;
 import org.springframework.web.bind.annotation.*;
@@ -28,17 +29,17 @@ public class PostController {
     }
 
     @GetMapping("/listAll")
-    Iterable<Post> listAll() {
+    Iterable<DynamoPost> listAll() {
         return postService.findAll();
     }
 
     @GetMapping("/findById")
-    Post findById(@RequestParam Long id) {
+    Post findById(@RequestParam String id) {
         return postService.findById(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteById(@PathVariable Long id){
+    void deleteById(@PathVariable String id){
         postService.deleteById(id);
     }
 

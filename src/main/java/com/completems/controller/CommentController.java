@@ -1,5 +1,6 @@
 package com.completems.controller;
 
+import com.completems.dto.CommentDTO;
 import com.completems.model.Comment;
 import com.completems.service.CommentService;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class CommentController {
     }
 
     @PostMapping("/create")
-    Comment create(@RequestBody Comment comment){
+    CommentDTO create(@RequestBody CommentDTO comment){
         return commentService.save(comment);
     }
 
